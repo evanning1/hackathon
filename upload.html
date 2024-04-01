@@ -1,0 +1,30 @@
+<!-- templates/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+    <h1>Clothing design</h1>
+    <h2>Upload Images</h2>
+    <h1>Uploaded Files</h1>
+    <ul>
+        {% for file in uploaded_files %}
+            <li>{{ file }}</li>
+        {% endfor %}
+    </ul>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Upload">
+    </form>
+    <hr>
+    <form action="/images" method="get">
+        <input type="submit" value="Finished Uploading">
+    </form>
+    <form action="/clear" method="get">
+        <input type="submit" value="Clear">
+    </form>
+</body>
+</html>

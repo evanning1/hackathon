@@ -1,0 +1,30 @@
+<!-- templates/images.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Images</title>
+</head>
+<body>
+    <h1>Uploaded Images</h1>
+    <form action="/" method="GET">
+        <button type="submit">Go Back</button>
+    </form>
+    {% for image in images %}
+        <img src="{{ url_for('static', filename='uploads/' + image) }}" alt="{{ image }}" style="max-width: 400px; max-height: 400px;">
+    {% endfor %}
+    <form action="/generate" method="GET">
+        <div>
+            <label for="category">Select a clothing type to generate:</label>
+            <select name="category" id="category">
+                <option value="Dress">Dress</option>
+                <option value="Shirt">Shirt</option>
+                <option value="Hat">Hat</option>
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+        <button type="submit">Generate</button>
+    </form>
+</body>
+</html>
